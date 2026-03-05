@@ -16,7 +16,7 @@ The infrastructure is managed via **Terraform** and includes:
 ---
 
 ## 🏗 Technical Architecture
-1. **Producer:** Uploads large data to Blob Storage and sends a small JSON message to Service Bus containing the Blob URI (the message is sent via Event Grid).
+1. **Producer:** Uploads large data to Blob Storage and sends a small JSON message to Service Bus containing the Blob URI (the message is sent via Event Grid). Files are uploaded using the [Azure Storage Uploader]https://github.com/jonmunm/azure-storage_uploader/)
 2. **Messaging:** Service Bus triggers the Azure Function upon receiving the claim.
 3. **Consumer (Function):** Reads the URI, downloads the full payload from Storage, and executes the business logic. Send some metrics to Azure Monitor Custom Metrics API.
 
