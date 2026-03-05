@@ -1,0 +1,9 @@
+variable "deployment_id" { type = string }
+variable "location" { type = string }
+variable "rg_name" { type = string }
+variable "main_storage_account_name" { type = string }
+variable "main_storage_container_name" { type = string }
+variable "main_storage_uami_name" { type = string }
+variable "dlq_storage_account_name" { type = string }
+variable "dlq_storage_container_name" { type = string }
+variable "function_storage_account_name" { type = string }

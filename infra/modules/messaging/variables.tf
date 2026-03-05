@@ -1,0 +1,12 @@
+variable "deployment_id" { type = string }
+variable "location" { type = string }
+variable "rg_name" { type = string }
+variable "service_bus_namespace_name" { type = string }
+variable "service_bus_topic_name" { type = string }
+variable "service_bus_subscription_name" { type = string }
+variable "event_grid_name" { type = string }
+variable "main_storage_id" { type = string }
+variable "event_grid_topic_name" { type = string }
+variable "event_grid_subscription_name" { type = string }
+variable "dlq_storage_id" { type = string }
+variable "dlq_storage_container_name" { type = string }

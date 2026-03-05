@@ -1,0 +1,11 @@
+variable "location" { type = string }
+variable "rg_name" { type = string }
+variable "dlq_storage_id" { type = string }
+variable "main_storage_id" { type = string }
+variable "event_grid_system_topic_principal_id" { type = string }
+variable "service_bus_topic_id" { type = string }
+variable "function_storage_id" { type = string }
+variable "function_app_principal_id" { type = string }
+variable "service_bus_subscription_id" { type = string }
+variable "data_collection_rule_id" { type = string }
+variable "personal_principal_id" { type = string }

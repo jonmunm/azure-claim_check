@@ -1,0 +1,18 @@
+# Terraform
+**/infra/.terraform.lock*
+**/infra/.terraform
+**/infra/*.tfstate
+**/infra/*.tfstate.backup
+
+# Python / Azure Functions
+**/src/__pycache__/
+**/src/.python_packages/
+**/src/.venv/
+**/src/.vscode/
+**/src/local.settings.json
+
+# Azurite
+__azurite*
+__blob*
+__queue*
+__table*

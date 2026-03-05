@@ -1,0 +1,12 @@
+variable "deployment_id" { type = string }
+variable "location" { type = string }
+variable "rg_name" { type = string }
+variable "main_storage_id" { type = string }
+variable "function_storage_account_name" { type = string }
+variable "function_storage_account_primary_key" { type = string }
+variable "function_plan_name" { type = string }
+variable "function_app_name" { type = string }
+variable "service_bus_namespace_name" { type = string }
+variable "service_bus_topic_name" { type = string }
+variable "service_bus_subscription_name" { type = string }
+variable "app_insights_key" { type = string }
