@@ -3,18 +3,6 @@ resource "azurerm_resource_group" "rg" {
   location = var.region
 }
 
-module "monitoring" {
-  source                        = "./modules/monitoring"
-  location                      = var.region
-  rg_name                       = azurerm_resource_group.rg.name
-  deployment_id                 = var.deployment_id
-  la_namespace_name             = var.la_namespace_name
-  custom_log_table_name         = var.custom_log_table_name
-  data_collection_endpoint_name = var.data_collection_endpoint_name
-  data_collection_rule_name     = var.data_collection_rule_name
-  app_insights_name             = var.app_insights_name
-}
-
 module "storage" {
   source                        = "./modules/storage"
   location                      = var.region
@@ -42,6 +30,21 @@ module "messaging" {
   dlq_storage_id                = module.storage.dlq_storage_id
   dlq_storage_container_name    = module.storage.dlq_storage_container_name
   service_bus_subscription_name = var.service_bus_subscription_name
+}
+
+module "monitoring" {
+  source                        = "./modules/monitoring"
+  location                      = var.region
+  rg_name                       = azurerm_resource_group.rg.name
+  deployment_id                 = var.deployment_id
+  la_namespace_name             = var.la_namespace_name
+  custom_log_table_name         = var.custom_log_table_name
+  data_collection_endpoint_name = var.data_collection_endpoint_name
+  data_collection_rule_name     = var.data_collection_rule_name
+  app_insights_name             = var.app_insights_name
+  rg_id                         = azurerm_resource_group.rg.id
+  main_storage_account_id       = module.storage.main_storage_id
+  service_bus_namespace_id      = module.messaging.service_bus_namespace_id
 }
 
 module "compute" {

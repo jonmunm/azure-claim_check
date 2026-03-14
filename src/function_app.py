@@ -29,11 +29,11 @@ def get_payload(metric_name, metric_value, pd_module):
         "data": {
             "baseData": {
                 "metric": metric_name,
-                "namespace": "Oportunistic Batching",
-                "dimNames": ["Experiment", "Worker Type"],
+                "namespace": "Claim Check",
+                "dimNames": ["Worker Type"],
                 "series": [
                     {
-                        "dimValues": ["Oportunistic", "Claim Check EP1"],
+                        "dimValues": ["Claim Check EP1"],
                         "min": float(metric_value),
                         "max": float(metric_value),
                         "sum": float(metric_value),

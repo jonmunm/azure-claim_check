@@ -7,6 +7,10 @@ output "service_bus_namespace_name" {
   value = azurerm_servicebus_namespace.sb_namespace.name
 }
 
+output "service_bus_namespace_id" {
+  value = azurerm_servicebus_namespace.sb_namespace.id
+}
+
 output "service_bus_topic_name" {
   value = azurerm_servicebus_topic.topic.name
 }

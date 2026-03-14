@@ -1,5 +1,5 @@
 # General
-rg_name = "rg-claim-check-service-bus"
+rg_name = "rg-claim-check"
 region  = "eastus"
 
 # Storage

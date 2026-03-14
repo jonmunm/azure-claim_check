@@ -1,0 +1,367 @@
+{
+    "version": "Notebook/1.0",
+    "items": [
+        {
+            "type": 1,
+            "content": {
+                "json": "# Claim Check\r\n-----"
+            },
+            "name": "text - 0"
+        },
+        {
+            "type": 9,
+            "content": {
+                "version": "KqlParameterItem/1.0",
+                "crossComponentResources": [
+                    "${rg_id}"
+                ],
+                "parameters": [
+                    {
+                        "id": "c3288448-18df-47dc-8bda-cdeb1d15f6ee",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "TimeRange",
+                        "type": 4,
+                        "typeSettings": {
+                            "selectableValues": [
+                                {
+                                    "durationMs": 300000
+                                },
+                                {
+                                    "durationMs": 900000
+                                },
+                                {
+                                    "durationMs": 1800000
+                                },
+                                {
+                                    "durationMs": 3600000
+                                },
+                                {
+                                    "durationMs": 14400000
+                                },
+                                {
+                                    "durationMs": 43200000
+                                }
+                            ],
+                            "allowCustom": true
+                        },
+                        "timeContext": {
+                            "durationMs": 86400000
+                        },
+                        "value": {
+                            "durationMs": 300000
+                        },
+                        "label": "Range"
+                    }
+                ],
+                "style": "pills",
+                "queryType": 0,
+                "resourceType": "microsoft.operationalinsights/workspaces"
+            },
+            "name": "parameters - 6"
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "## Function"
+            },
+            "name": "text - 1"
+        },
+        {
+            "type": 12,
+            "content": {
+                "version": "NotebookGroup/1.0",
+                "groupType": "editable",
+                "items": [
+                    {
+                        "type": 10,
+                        "content": {
+                            "chartId": "workbook8e52abd7-07f2-4d6c-9435-43e300719553",
+                            "version": "MetricsItem/2.0",
+                            "size": 1,
+                            "chartType": 2,
+                            "resourceType": "microsoft.insights/components",
+                            "metricScope": 0,
+                            "resourceIds": [
+                                "${app_insights_id}"
+                            ],
+                            "timeContextFromParameter": "TimeRange",
+                            "timeContext": {
+                                "durationMs": 300000
+                            },
+                            "metrics": [
+                                {
+                                    "namespace": "azure.applicationinsights",
+                                    "metric": "azure.applicationinsights--consumer Count",
+                                    "aggregation": 1,
+                                    "columnName": "Count"
+                                },
+                                {
+                                    "namespace": "azure.applicationinsights",
+                                    "metric": "azure.applicationinsights--consumer Failures",
+                                    "aggregation": 1,
+                                    "columnName": "Failures"
+                                },
+                                {
+                                    "namespace": "azure.applicationinsights",
+                                    "metric": "azure.applicationinsights--consumer Successes",
+                                    "aggregation": 1,
+                                    "columnName": "Successes"
+                                }
+                            ],
+                            "title": "Executions",
+                            "gridSettings": {
+                                "rowLimit": 10000
+                            }
+                        },
+                        "customWidth": "50",
+                        "name": "metric - 0 - Copy - Copy"
+                    },
+                    {
+                        "type": 10,
+                        "content": {
+                            "chartId": "workbook8e52abd7-07f2-4d6c-9435-43e300719553",
+                            "version": "MetricsItem/2.0",
+                            "size": 1,
+                            "chartType": 2,
+                            "resourceType": "microsoft.insights/components",
+                            "metricScope": 0,
+                            "resourceIds": [
+                                "${app_insights_id}"
+                            ],
+                            "timeContextFromParameter": "TimeRange",
+                            "timeContext": {
+                                "durationMs": 300000
+                            },
+                            "metrics": [
+                                {
+                                    "namespace": "azure.applicationinsights",
+                                    "metric": "azure.applicationinsights--consumer MaxDurationMs",
+                                    "aggregation": 3,
+                                    "columnName": "Max Duration"
+                                },
+                                {
+                                    "namespace": "azure.applicationinsights",
+                                    "metric": "azure.applicationinsights--consumer MinDurationMs",
+                                    "aggregation": 2,
+                                    "columnName": "Min Duration"
+                                },
+                                {
+                                    "namespace": "azure.applicationinsights",
+                                    "metric": "azure.applicationinsights--consumer AvgDurationMs",
+                                    "aggregation": 4,
+                                    "columnName": "Avg Duration"
+                                }
+                            ],
+                            "title": "Durations",
+                            "gridSettings": {
+                                "rowLimit": 10000
+                            }
+                        },
+                        "customWidth": "50",
+                        "name": "metric - 0 - Copy - Copy - Copy"
+                    },
+                    {
+                        "type": 10,
+                        "content": {
+                            "chartId": "workbook8e52abd7-07f2-4d6c-9435-43e300719553",
+                            "version": "MetricsItem/2.0",
+                            "size": 1,
+                            "chartType": 2,
+                            "resourceType": "microsoft.storage/storageaccounts",
+                            "metricScope": 0,
+                            "resourceIds": [
+                                "${main_storage_account_id}"
+                            ],
+                            "timeContextFromParameter": "TimeRange",
+                            "timeContext": {
+                                "durationMs": 300000
+                            },
+                            "metrics": [
+                                {
+                                    "namespace": "claim check",
+                                    "metric": "claim check--File Size",
+                                    "aggregation": 1,
+                                    "columnName": "File Size"
+                                }
+                            ],
+                            "title": "File Size",
+                            "gridSettings": {
+                                "rowLimit": 10000
+                            }
+                        },
+                        "customWidth": "50",
+                        "name": "metric - 0"
+                    },
+                    {
+                        "type": 10,
+                        "content": {
+                            "chartId": "workbook8e52abd7-07f2-4d6c-9435-43e300719553",
+                            "version": "MetricsItem/2.0",
+                            "size": 1,
+                            "chartType": 2,
+                            "resourceType": "microsoft.storage/storageaccounts",
+                            "metricScope": 0,
+                            "resourceIds": [
+                                "${main_storage_account_id}"
+                            ],
+                            "timeContextFromParameter": "TimeRange",
+                            "timeContext": {
+                                "durationMs": 300000
+                            },
+                            "metrics": [
+                                {
+                                    "namespace": "claim check",
+                                    "metric": "claim check--Rows",
+                                    "aggregation": 1,
+                                    "columnName": "Rows"
+                                }
+                            ],
+                            "title": "Rows",
+                            "gridSettings": {
+                                "rowLimit": 10000
+                            }
+                        },
+                        "customWidth": "50",
+                        "name": "metric - 0 - Copy"
+                    }
+                ]
+            },
+            "name": "group - 3"
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "## Service Bus"
+            },
+            "name": "text - 4"
+        },
+        {
+            "type": 12,
+            "content": {
+                "version": "NotebookGroup/1.0",
+                "groupType": "editable",
+                "items": [
+                    {
+                        "type": 10,
+                        "content": {
+                            "chartId": "workbookce4bb7d4-062b-4ea1-ae7c-14a4be2bae1a",
+                            "version": "MetricsItem/2.0",
+                            "size": 1,
+                            "chartType": 2,
+                            "resourceType": "microsoft.servicebus/namespaces",
+                            "metricScope": 0,
+                            "resourceIds": [
+                                "${service_bus_namespace_id}"
+                            ],
+                            "timeContextFromParameter": "TimeRange",
+                            "timeContext": {
+                                "durationMs": 300000
+                            },
+                            "metrics": [
+                                {
+                                    "namespace": "microsoft.servicebus/namespaces",
+                                    "metric": "microsoft.servicebus/namespaces--ActiveMessages",
+                                    "aggregation": 4,
+                                    "columnName": "Active messages"
+                                },
+                                {
+                                    "namespace": "microsoft.servicebus/namespaces",
+                                    "metric": "microsoft.servicebus/namespaces--DeadletteredMessages",
+                                    "aggregation": 4,
+                                    "columnName": "Dead-lettered messages"
+                                }
+                            ],
+                            "title": "Count of messages",
+                            "gridSettings": {
+                                "rowLimit": 10000
+                            }
+                        },
+                        "customWidth": "33",
+                        "name": "metric - 0"
+                    },
+                    {
+                        "type": 10,
+                        "content": {
+                            "chartId": "workbookce4bb7d4-062b-4ea1-ae7c-14a4be2bae1a",
+                            "version": "MetricsItem/2.0",
+                            "size": 1,
+                            "chartType": 2,
+                            "resourceType": "microsoft.servicebus/namespaces",
+                            "metricScope": 0,
+                            "resourceIds": [
+                                "${service_bus_namespace_id}"
+                            ],
+                            "timeContextFromParameter": "TimeRange",
+                            "timeContext": {
+                                "durationMs": 300000
+                            },
+                            "metrics": [
+                                {
+                                    "namespace": "microsoft.servicebus/namespaces",
+                                    "metric": "microsoft.servicebus/namespaces--IncomingBytes",
+                                    "aggregation": 1,
+                                    "columnName": ""
+                                },
+                                {
+                                    "namespace": "microsoft.servicebus/namespaces",
+                                    "metric": "microsoft.servicebus/namespaces--OutgoingBytes",
+                                    "aggregation": 1,
+                                    "columnName": ""
+                                }
+                            ],
+                            "title": "Bytes",
+                            "gridSettings": {
+                                "rowLimit": 10000
+                            }
+                        },
+                        "customWidth": "33",
+                        "name": "metric - 0 - Copy"
+                    },
+                    {
+                        "type": 10,
+                        "content": {
+                            "chartId": "workbookce4bb7d4-062b-4ea1-ae7c-14a4be2bae1a",
+                            "version": "MetricsItem/2.0",
+                            "size": 1,
+                            "chartType": 2,
+                            "resourceType": "microsoft.servicebus/namespaces",
+                            "metricScope": 0,
+                            "resourceIds": [
+                                "${service_bus_namespace_id}"
+                            ],
+                            "timeContextFromParameter": "TimeRange",
+                            "timeContext": {
+                                "durationMs": 300000
+                            },
+                            "metrics": [
+                                {
+                                    "namespace": "microsoft.servicebus/namespaces",
+                                    "metric": "microsoft.servicebus/namespaces--IncomingMessages",
+                                    "aggregation": 1,
+                                    "columnName": ""
+                                },
+                                {
+                                    "namespace": "microsoft.servicebus/namespaces",
+                                    "metric": "microsoft.servicebus/namespaces--OutgoingMessages",
+                                    "aggregation": 1,
+                                    "columnName": ""
+                                }
+                            ],
+                            "title": "Messages",
+                            "gridSettings": {
+                                "rowLimit": 10000
+                            }
+                        },
+                        "customWidth": "33",
+                        "name": "metric - 0 - Copy - Copy"
+                    }
+                ]
+            },
+            "name": "group - 5"
+        }
+    ],
+    "fallbackResourceIds": [
+        "${rg_id}"
+    ],
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
+}

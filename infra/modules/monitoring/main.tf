@@ -80,3 +80,20 @@ resource "azurerm_application_insights" "app_insights" {
   application_type    = "web"
   workspace_id        = azurerm_log_analytics_workspace.log_ws.id
 }
+
+resource "azurerm_application_insights_workbook" "workbook" {
+  name                = uuidv5("dns", "claimcheck-workbook-${var.deployment_id}")
+  resource_group_name = var.rg_name
+  location            = var.location
+  display_name        = "Claim Check Monitoring - ${var.deployment_id}"
+
+  # Aquí cargamos el archivo JSON y le pasamos variables
+  data_json = templatefile(abspath("${path.module}/workbook.json"), {
+    rg_id                    = var.rg_id
+    main_storage_account_id  = var.main_storage_account_id
+    app_insights_id          = azurerm_application_insights.app_insights.id
+    service_bus_namespace_id = var.service_bus_namespace_id
+  })
+
+  category = "workbook"
+}
